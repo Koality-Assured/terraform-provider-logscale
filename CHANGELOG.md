@@ -6,11 +6,18 @@ The format is based on Keep a Changelog, adapted for this repository's manual re
 
 ## [Unreleased]
 
+### Added
+
+- Vector branding assets: added official SVG logo (`assets/terraform-provider-logscale-logo.svg`) and hero banner (`assets/terraform-provider-logscale-banner.svg`) fusing Terraform isometric architecture with Falcon LogScale streaming telemetry waveforms
+- MIT License (`LICENSE`) added to repository root
+- Repository beautification: updated `README.md` with centered hero banner, vector logo, live auto-updating badges (Terraform Registry, Go Version, Version, MIT License, Conventional Commits), and expanded repository layout documentation
+
 ### Changed
 
 - published this repository under Koality-Assured as a scrubbed public provider home: removed the `aex/` probe tree, removed all GitHub Actions workflows (releases are manual — see `RELEASING.md`), and generalized org-specific agent/docs references
 
 ## [0.3.12]
+
 
 ### Fixed
 

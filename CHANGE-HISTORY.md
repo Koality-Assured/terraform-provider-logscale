@@ -22,7 +22,20 @@ Do **not** paste secrets, credentials, customer data, or long prompts.
 
 ## Entries (newest first)
 
+### 2026-10-09 - Repository beautification with vector identity assets, live badges, and MIT license
+
+| Field | Value |
+| --- | --- |
+| Date | 2026-10-09 (UTC) |
+| Requesting user | Robbie |
+| AI agent | Antigravity (Terraform Provider LogScale Beautification Specialist) |
+| User request | Beautify repository with vector branding assets, live badges, MIT license, and polished hero section. |
+| Summary | • **Vector identity**: Designed and created `assets/terraform-provider-logscale-logo.svg` (512x512) and `assets/terraform-provider-logscale-banner.svg` (1200x360) featuring Terraform purple isometric blocks, Falcon LogScale amber streaming telemetry waveforms, and dark obsidian backings<br>• **License**: Added standard MIT `LICENSE` file for Koality-Assured in the repository root<br>• **README Polish**: Replaced basic header with centered visual banner, logo emblem, tagline, live badges (Terraform Registry, Go 1.21+, Version, MIT License, Conventional Commits), and expanded layout documentation<br>• **Changelog & Documentation**: Updated `CHANGELOG.md` with unreleased branding and docs entries |
+
+---
+
 ### 2026-08-07 - Published scrubbed provider under Koality-Assured (no Actions, no aex)
+
 
 | Field | Value |
 | --- | --- |

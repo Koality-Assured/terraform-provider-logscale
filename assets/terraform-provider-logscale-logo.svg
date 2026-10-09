@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1B1534"/>
+      <stop offset="60%" stop-color="#0E101D"/>
+      <stop offset="100%" stop-color="#080911"/>
+    </radialGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#844FBA" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#5C4EE5" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#FF6A00" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Terraform Purple Gradients -->
+    <linearGradient id="tf-purple-top" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A77BE8"/>
+      <stop offset="100%" stop-color="#7B42BC"/>
+    </linearGradient>
+
+    <linearGradient id="tf-purple-left" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#844FBA"/>
+      <stop offset="100%" stop-color="#5C4EE5"/>
+    </linearGradient>
+
+    <linearGradient id="tf-purple-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F36A8"/>
+      <stop offset="100%" stop-color="#2D1F68"/>
+    </linearGradient>
+
+    <!-- LogScale Amber Gradients -->
+    <linearGradient id="logscale-amber-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB03A"/>
+      <stop offset="50%" stop-color="#FF6A00"/>
+      <stop offset="100%" stop-color="#E04F00"/>
+    </linearGradient>
+
+    <linearGradient id="logscale-amber-bright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4"/>
+      <stop offset="40%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <linearGradient id="logscale-beam" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#844FBA" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#5C4EE5" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#FF6A00" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFB03A" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Glow & Shadow Filters -->
+    <filter id="soft-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="high-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" result="blur1"/>
+      <feGaussianBlur stdDeviation="4" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+  </defs>
+
+  <!-- Obsidian Background Plate -->
+  <rect x="16" y="16" width="480" height="480" rx="108" fill="url(#bg-grad)" stroke="url(#border-grad)" stroke-width="2.5" filter="url(#drop-shadow)"/>
+
+  <!-- Telemetry Coordinate Matrix & Ambient Waveform Ring -->
+  <g opacity="0.18">
+    <circle cx="256" cy="256" r="195" fill="none" stroke="#844FBA" stroke-width="1.2" stroke-dasharray="4 8"/>
+    <circle cx="256" cy="256" r="150" fill="none" stroke="#FF6A00" stroke-width="1" stroke-dasharray="2 6"/>
+    <line x1="61" y1="256" x2="451" y2="256" stroke="#844FBA" stroke-width="0.8" stroke-dasharray="6 6"/>
+    <line x1="256" y1="61" x2="256" y2="451" stroke="#FF6A00" stroke-width="0.8" stroke-dasharray="6 6"/>
+  </g>
+
+  <!-- Ambient Light Pulses -->
+  <circle cx="170" cy="210" r="120" fill="#7B42BC" opacity="0.22" filter="url(#high-glow)"/>
+  <circle cx="330" cy="280" r="130" fill="#FF6A00" opacity="0.22" filter="url(#high-glow)"/>
+
+  <!-- Core Isometric Architecture & Telemetry Engine -->
+  <g filter="url(#drop-shadow)">
+    <!-- LEFT PILLAR: Terraform Infrastructure Block 1 (Top-Left) -->
+    <path d="M 125 155 L 195 115 L 195 210 L 125 250 Z" fill="url(#tf-purple-left)"/>
+    <path d="M 125 155 L 195 115 L 230 135 L 160 175 Z" fill="url(#tf-purple-top)"/>
+
+    <!-- Terraform Block 2 (Bottom-Left) -->
+    <path d="M 125 268 L 195 228 L 195 365 L 125 405 Z" fill="url(#tf-purple-dark)"/>
+    <path d="M 195 228 L 265 188 L 265 283 L 195 323 Z" fill="url(#tf-purple-left)"/>
+    <path d="M 125 268 L 195 228 L 265 188 L 195 228 Z" fill="url(#tf-purple-top)"/>
+
+    <!-- RIGHT PILLAR: Falcon LogScale Telemetry Prism (Top-Right / Ingestion Node) -->
+    <path d="M 275 115 L 345 75 L 345 210 L 275 250 Z" fill="url(#logscale-amber-main)"/>
+    <path d="M 275 115 L 345 75 L 380 95 L 310 135 Z" fill="url(#logscale-amber-bright)"/>
+
+    <!-- LogScale Block 4 (Bottom-Right / Scaled Index Shards) -->
+    <path d="M 275 268 L 345 228 L 345 365 L 275 405 Z" fill="url(#logscale-amber-main)"/>
+    <path d="M 345 228 L 415 188 L 415 323 L 345 363 Z" fill="url(#logscale-amber-bright)"/>
+    <path d="M 275 268 L 345 228 L 415 188 L 345 228 Z" fill="url(#logscale-amber-bright)" opacity="0.9"/>
+  </g>
+
+  <!-- Glowing Telemetry Stream & Real-Time Waveform Beam -->
+  <g filter="url(#soft-glow)">
+    <!-- High-Throughput Stream Path connecting Terraform to LogScale -->
+    <path d="M 100 256 C 145 256, 160 195, 205 195 C 235 195, 240 317, 270 317 C 295 317, 310 215, 340 215 C 370 215, 385 256, 420 256" 
+          fill="none" stroke="url(#logscale-beam)" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- Secondary Harmonic Waveform -->
+    <path d="M 115 256 C 150 256, 170 220, 205 220 C 235 220, 245 292, 275 292 C 305 292, 320 238, 350 238 C 380 238, 395 256, 410 256" 
+          fill="none" stroke="#FFF3C4" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  </g>
+
+  <!-- Ingestion Sensor Dots / Telemetry Data Nodes -->
+  <g filter="url(#high-glow)">
+    <circle cx="205" cy="195" r="7" fill="#A77BE8"/>
+    <circle cx="205" cy="195" r="3.5" fill="#FFFFFF"/>
+
+    <circle cx="270" cy="317" r="8" fill="#FF6A00"/>
+    <circle cx="270" cy="317" r="4" fill="#FFF3C4"/>
+
+    <circle cx="340" cy="215" r="7.5" fill="#FBBF24"/>
+    <circle cx="340" cy="215" r="3.5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Speed Pulse Particles -->
+  <circle cx="150" cy="226" r="3" fill="#A77BE8" opacity="0.8"/>
+  <circle cx="238" cy="256" r="3.5" fill="#FFB03A" opacity="0.9"/>
+  <circle cx="305" cy="304" r="3" fill="#F59E0B" opacity="0.85"/>
+  <circle cx="380" cy="235" r="3" fill="#FFD166" opacity="0.8"/>
+
+  <!-- Crisp Falcon Crest Accent Line -->
+  <path d="M 256 75 L 290 135 L 256 120 L 222 135 Z" fill="#FFB03A" opacity="0.9" filter="url(#soft-glow)"/>
+</svg>
