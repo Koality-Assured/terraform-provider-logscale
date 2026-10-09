@@ -1,10 +1,29 @@
-# LogScale Terraform Provider
+<p align="center">
+  <img src="assets/terraform-provider-logscale-banner.svg" alt="Terraform Provider for Falcon LogScale" width="100%" />
+</p>
 
-[![Version](./.github/badges/version.svg)](./VERSION)
+<p align="center">
+  <img src="assets/terraform-provider-logscale-logo.svg" alt="Terraform Provider LogScale Logo" width="120" height="120" />
+</p>
 
-A Terraform provider for managing Falcon LogScale resources through the GraphQL API.
+<h1 align="center">Terraform Provider for Falcon LogScale</h1>
+
+<p align="center">
+  <strong>Declarative Infrastructure as Code for Falcon LogScale streaming telemetry via GraphQL API</strong>
+</p>
+
+<p align="center">
+  <a href="https://registry.terraform.io"><img src="https://img.shields.io/badge/terraform-provider-purple.svg" alt="Terraform Provider" /></a>
+  <a href="go.mod"><img src="https://img.shields.io/badge/go-1.21+-blue.svg" alt="Go Version" /></a>
+  <a href="./VERSION"><img src="./.github/badges/version.svg" alt="Version" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" /></a>
+  <a href="https://conventionalcommits.org"><img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="Conventional Commits" /></a>
+</p>
+
+---
 
 This repository is for provider implementation, documentation, research, and releases. Normal consumers should use the published release artifacts from this repo. Manual local builds are for provider development and debugging.
+
 
 ## Overview
 
@@ -607,16 +626,20 @@ Some LogScale operations depend on the token type and granted permissions. Inges
 
 Key paths in this repository:
 
+- `assets/` - vector branding identity and banners (`logo.svg`, `banner.svg`)
 - `internal/provider/` - provider implementation
 - `reference/` - research wiki and API notes
 - `.github/badges/` - version badge (no Actions workflows in this repo)
 - `terraform-test-project/` - local validation examples
+- `LICENSE` - MIT license
 - `CHANGELOG.md` - release notes
 - `RELEASING.md` - release procedure
 
 ## Additional References
 
+- [LICENSE](./LICENSE)
 - [CHANGELOG.md](./CHANGELOG.md)
 - [RELEASING.md](./RELEASING.md)
 - [reference/README.md](./reference/README.md)
 - [terraform-test-project/README.md](./terraform-test-project/README.md)
+

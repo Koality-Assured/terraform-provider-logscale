@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="banner-bg" cx="50%" cy="30%" r="90%">
+      <stop offset="0%" stop-color="#181335"/>
+      <stop offset="45%" stop-color="#0E1020"/>
+      <stop offset="100%" stop-color="#07080E"/>
+    </radialGradient>
+
+    <!-- Border Glow Gradient -->
+    <linearGradient id="banner-border" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#844FBA" stop-opacity="0.9"/>
+      <stop offset="35%" stop-color="#5C4EE5" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#FF6A00" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <!-- Ambient Glows -->
+    <radialGradient id="purple-glow" cx="20%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#7B42BC" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#7B42BC" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="amber-glow" cx="85%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#FF6A00" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FF6A00" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Terraform Purple Gradients -->
+    <linearGradient id="tf-purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A77BE8"/>
+      <stop offset="50%" stop-color="#844FBA"/>
+      <stop offset="100%" stop-color="#5C4EE5"/>
+    </linearGradient>
+
+    <linearGradient id="tf-block-dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F36A8"/>
+      <stop offset="100%" stop-color="#281A5E"/>
+    </linearGradient>
+
+    <!-- LogScale Amber Gradients -->
+    <linearGradient id="ls-amber-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB03A"/>
+      <stop offset="50%" stop-color="#FF6A00"/>
+      <stop offset="100%" stop-color="#D94800"/>
+    </linearGradient>
+
+    <linearGradient id="ls-amber-bright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4"/>
+      <stop offset="45%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <!-- Stream Beam Gradient -->
+    <linearGradient id="stream-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#844FBA" stop-opacity="0.1"/>
+      <stop offset="40%" stop-color="#5C4EE5" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#FF6A00" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FFB03A" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Text Title Gradient -->
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#EDE9FE"/>
+      <stop offset="100%" stop-color="#FED7AA"/>
+    </linearGradient>
+
+    <!-- Pill Gradient -->
+    <linearGradient id="pill-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5C4EE5" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF6A00" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="banner-drop-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="intense-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur1"/>
+      <feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Background Grid Pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Base Obsidian Container with Outer Frame -->
+  <rect x="8" y="8" width="1184" height="344" rx="24" fill="url(#banner-bg)" stroke="url(#banner-border)" stroke-width="2" filter="url(#banner-drop-shadow)"/>
+
+  <!-- Background Grid Mesh -->
+  <rect x="8" y="8" width="1184" height="344" rx="24" fill="url(#grid)"/>
+
+  <!-- Ambient Color Pulses -->
+  <rect x="8" y="8" width="1184" height="344" rx="24" fill="url(#purple-glow)"/>
+  <rect x="8" y="8" width="1184" height="344" rx="24" fill="url(#amber-glow)"/>
+
+  <!-- Telemetry Waveforms Running Behind Logo and Text -->
+  <g opacity="0.22">
+    <path d="M 10 280 C 120 280, 160 220, 240 220 C 320 220, 360 310, 460 310 C 560 310, 620 200, 720 200 C 820 200, 900 270, 1000 270 C 1080 270, 1140 240, 1190 240" 
+          fill="none" stroke="#FF6A00" stroke-width="1.5" stroke-dasharray="3 5"/>
+    <path d="M 10 240 C 140 240, 200 300, 290 300 C 390 300, 440 180, 550 180 C 660 180, 740 290, 850 290 C 950 290, 1050 210, 1190 210" 
+          fill="none" stroke="#844FBA" stroke-width="1.5" stroke-dasharray="4 6"/>
+  </g>
+
+  <!-- ==================== LEFT SECTION: ICON EMBLEM ==================== -->
+  <g transform="translate(45, 30)">
+    <!-- Emblem Housing Plate -->
+    <rect x="35" y="25" width="250" height="250" rx="44" fill="#0E1020" fill-opacity="0.7" stroke="url(#banner-border)" stroke-width="1.8" filter="url(#banner-drop-shadow)"/>
+
+    <!-- Emblem Radar/Telemetry Rings -->
+    <g opacity="0.25">
+      <circle cx="160" cy="150" r="105" fill="none" stroke="#844FBA" stroke-width="1" stroke-dasharray="3 6"/>
+      <circle cx="160" cy="150" r="75" fill="none" stroke="#FF6A00" stroke-width="1" stroke-dasharray="2 5"/>
+      <line x1="55" y1="150" x2="265" y2="150" stroke="#844FBA" stroke-width="0.8" stroke-dasharray="4 4"/>
+      <line x1="160" y1="45" x2="160" y2="255" stroke="#FF6A00" stroke-width="0.8" stroke-dasharray="4 4"/>
+    </g>
+
+    <!-- Isometric Terraform & LogScale Geometry -->
+    <g filter="url(#banner-drop-shadow)">
+      <!-- Terraform Top-Left Block -->
+      <path d="M 85 95 L 125 72 L 125 125 L 85 148 Z" fill="url(#tf-purple-grad)"/>
+      <path d="M 85 95 L 125 72 L 145 84 L 105 107 Z" fill="#B388FF"/>
+
+      <!-- Terraform Bottom-Left Block -->
+      <path d="M 85 160 L 125 137 L 125 215 L 85 238 Z" fill="url(#tf-block-dark)"/>
+      <path d="M 125 137 L 165 114 L 165 168 L 125 191 Z" fill="url(#tf-purple-grad)"/>
+      <path d="M 85 160 L 125 137 L 165 114 L 125 137 Z" fill="#9D65D8"/>
+
+      <!-- LogScale Top-Right Block -->
+      <path d="M 175 72 L 215 49 L 215 125 L 175 148 Z" fill="url(#ls-amber-grad)"/>
+      <path d="M 175 72 L 215 49 L 235 61 L 195 84 Z" fill="url(#ls-amber-bright)"/>
+
+      <!-- LogScale Bottom-Right Block -->
+      <path d="M 175 160 L 215 137 L 215 215 L 175 238 Z" fill="url(#ls-amber-grad)"/>
+      <path d="M 215 137 L 255 114 L 255 191 L 215 214 Z" fill="url(#ls-amber-bright)"/>
+      <path d="M 175 160 L 215 137 L 255 114 L 215 137 Z" fill="url(#ls-amber-bright)" opacity="0.9"/>
+    </g>
+
+    <!-- Flowing Telemetry Sine Wave across the Emblem -->
+    <g filter="url(#glow-filter)">
+      <path d="M 70 150 C 95 150, 105 115, 130 115 C 150 115, 155 185, 175 185 C 195 185, 205 125, 225 125 C 242 125, 250 150, 270 150" 
+            fill="none" stroke="url(#stream-beam)" stroke-width="4.5" stroke-linecap="round"/>
+      <path d="M 80 150 C 102 150, 112 128, 130 128 C 148 128, 156 172, 175 172 C 193 172, 204 138, 225 138 C 244 138, 252 150, 260 150" 
+            fill="none" stroke="#FFF3C4" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
+    </g>
+
+    <!-- Telemetry Pulse Nodes -->
+    <g filter="url(#intense-glow)">
+      <circle cx="130" cy="115" r="5" fill="#C084FC"/>
+      <circle cx="130" cy="115" r="2.2" fill="#FFFFFF"/>
+
+      <circle cx="175" cy="185" r="5.5" fill="#FF6A00"/>
+      <circle cx="175" cy="185" r="2.5" fill="#FFF3C4"/>
+
+      <circle cx="225" cy="125" r="5" fill="#FBBF24"/>
+      <circle cx="225" cy="125" r="2.2" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Falcon Wing Crest Peak -->
+    <path d="M 160 49 L 180 84 L 160 76 L 140 84 Z" fill="#FBBF24" opacity="0.85" filter="url(#glow-filter)"/>
+  </g>
+
+  <!-- ==================== RIGHT SECTION: TYPOGRAPHY & CHIPS ==================== -->
+  <g transform="translate(365, 52)">
+    <!-- Top Category Pill / Badge -->
+    <g>
+      <rect x="0" y="0" width="375" height="30" rx="15" fill="url(#pill-grad)" stroke="#844FBA" stroke-opacity="0.45" stroke-width="1.2"/>
+      <circle cx="16" cy="15" r="4.5" fill="#FF6A00" filter="url(#glow-filter)"/>
+      <text x="28" y="19" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="11" font-weight="700" fill="#E2E8F0" letter-spacing="1.2">
+        TERRAFORM PROVIDER FOR FALCON LOGSCALE
+      </text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="44" font-weight="800" fill="url(#title-grad)" letter-spacing="-0.8">
+      terraform-provider-logscale
+    </text>
+
+    <!-- Subtitle / Value Prop -->
+    <text x="0" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16.5" font-weight="400" fill="#CBD5E1">
+      Declarative Infrastructure as Code for Falcon LogScale streaming telemetry.
+    </text>
+
+    <text x="0" y="146" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14.5" font-weight="400" fill="#94A3B8">
+      Automate Repositories, Views, Dashboards, Alerts, Lookups, Ingest Feeds, and RBAC via GraphQL.
+    </text>
+
+    <!-- Feature Capabilities Matrix / Badges Chips -->
+    <g transform="translate(0, 182)">
+      <!-- Chip 1: Terraform Plugin Framework -->
+      <g>
+        <rect x="0" y="0" width="200" height="36" rx="10" fill="#1A1538" stroke="#7B42BC" stroke-opacity="0.7" stroke-width="1.2"/>
+        <circle cx="20" cy="18" r="5" fill="#A77BE8"/>
+        <text x="34" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#EDE9FE">
+          HashiCorp Framework v1
+        </text>
+      </g>
+
+      <!-- Chip 2: Falcon LogScale GraphQL -->
+      <g transform="translate(212, 0)">
+        <rect x="0" y="0" width="186" height="36" rx="10" fill="#241416" stroke="#FF6A00" stroke-opacity="0.65" stroke-width="1.2"/>
+        <circle cx="20" cy="18" r="5" fill="#FF6A00"/>
+        <text x="34" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FED7AA">
+          LogScale GraphQL API
+        </text>
+      </g>
+
+      <!-- Chip 3: Telemetry & Ingestion Feeds -->
+      <g transform="translate(410, 0)">
+        <rect x="0" y="0" width="176" height="36" rx="10" fill="#131B32" stroke="#38BDF8" stroke-opacity="0.6" stroke-width="1.2"/>
+        <circle cx="20" cy="18" r="5" fill="#38BDF8"/>
+        <text x="34" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#E0F2FE">
+          S3 / SQS Ingest Feeds
+        </text>
+      </g>
+
+      <!-- Chip 4: Granular RBAC & Security -->
+      <g transform="translate(598, 0)">
+        <rect x="0" y="0" width="180" height="36" rx="10" fill="#1C182A" stroke="#F59E0B" stroke-opacity="0.6" stroke-width="1.2"/>
+        <circle cx="20" cy="18" r="5" fill="#FBBF24"/>
+        <text x="34" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="600" fill="#FEF3C7">
+          Role &amp; View Assignments
+        </text>
+      </g>
+    </g>
+
+    <!-- Bottom Accent Line -->
+    <line x1="0" y1="240" x2="778" y2="240" stroke="url(#banner-border)" stroke-width="1.5" stroke-opacity="0.7"/>
+  </g>
+</svg>
