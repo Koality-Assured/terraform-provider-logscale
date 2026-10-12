@@ -5,7 +5,7 @@ import (
 	"flag"
 	"log"
 
-	"terraform-provider-logscale/internal/provider"
+	"github.com/Koality-Assured/terraform-provider-logscale/internal/provider"
 
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 )
@@ -21,7 +21,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/hashicorp/logscale",
+		Address: "registry.terraform.io/koality-assured/logscale",
 		Debug:   debug,
 	}
 

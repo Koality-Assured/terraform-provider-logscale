@@ -1,61 +1,42 @@
-# Releasing
+# Releasing terraform-provider-logscale
 
-## Normal Flow
+Releases are fully automated via GitHub Actions (`.github/workflows/release.yml`) when a new `v*` tag is pushed to the repository.
 
-Releases are created **manually**. This repository has no GitHub Actions release workflow.
+## First-Time Setup (One-time only)
 
-The intended procedure is:
+To publish this provider to the Terraform Registry, you need a GPG key to sign the releases.
 
-1. Move the release notes for the target version into `CHANGELOG.md` under a `## [x.y.z]` section (and leave a fresh empty `## [Unreleased]` heading).
-2. Update `VERSION` to the matching bare semantic version, for example `0.1.1`.
-3. Update `.github/badges/version.svg` so the badge matches `VERSION`.
-4. Commit those changes along with any release-ready code and push to `master`.
-5. Build Linux and Windows binaries locally:
-
-   ```bash
-   VERSION="v$(tr -d '[:space:]' < VERSION)"
-   mkdir -p dist/linux dist/windows release
-
-   GOOS=linux GOARCH=amd64 CGO_ENABLED=0 \
-     go build -trimpath -ldflags="-s -w -X main.version=${VERSION}" \
-     -o "dist/linux/terraform-provider-logscale_${VERSION}" .
-
-   GOOS=windows GOARCH=amd64 CGO_ENABLED=0 \
-     go build -trimpath -ldflags="-s -w -X main.version=${VERSION}" \
-     -o "dist/windows/terraform-provider-logscale_${VERSION}.exe" .
-
-   (cd dist/linux && zip -9 "../../release/terraform-provider-logscale_${VERSION}_linux_amd64.zip" "terraform-provider-logscale_${VERSION}")
-   (cd dist/windows && zip -9 "../../release/terraform-provider-logscale_${VERSION}_windows_amd64.zip" "terraform-provider-logscale_${VERSION}.exe")
-   sha256sum release/*.zip > "release/terraform-provider-logscale_${VERSION}_SHA256SUMS"
+1. **Generate a GPG Key**:
+   ```sh
+   gpg --batch --passphrase '' --quick-gen-key 'Koality Assured <maintainers@koality-assured.com>' rsa4096 default never
    ```
 
-6. Create a git tag and a GitHub Release from the curated changelog section, attaching the zip artifacts and SHA256SUMS:
+2. **Export the keys**:
+   ```sh
+   # Export Public Key (Upload this to Terraform Registry)
+   gpg --armor --export 'Koality Assured' > public.asc
 
-   ```bash
-   TAG="v$(tr -d '[:space:]' < VERSION)"
-   git tag "${TAG}"
-   git push origin "${TAG}"
-   gh release create "${TAG}" \
-     --title "${TAG}" \
-     --notes-file <(awk -v version="$(tr -d '[:space:]' < VERSION)" '
-       BEGIN { in_section=0; found=0 }
-       $0 ~ "^## \\[" version "\\]" { in_section=1; found=1; next }
-       $0 ~ "^## \\[" && in_section==1 { exit }
-       in_section==1 { print }
-       END { if (found==0) exit 2 }
-     ' CHANGELOG.md) \
-     release/*.zip release/*SHA256SUMS
+   # Export Private Key
+   gpg --armor --export-secret-keys 'Koality Assured' > private.asc
    ```
 
-## Rules
+3. **Configure GitHub Repository Secrets**:
+   Go to the repository settings -> Secrets and variables -> Actions, and add:
+   - `GPG_PRIVATE_KEY`: The contents of `private.asc`
+   - `PASSPHRASE`: The passphrase used when generating the key (if any)
 
-- `VERSION` must contain a bare semantic version such as `0.1.0`
-- `CHANGELOG.md` should contain a matching `## [x.y.z]` section for the version being released
-- if a tag like `v0.1.0` already exists, do not reuse it — bump `VERSION` first
-- normal pushes that do not change `VERSION` do not create a release
+4. **Upload Public Key to Terraform Registry**:
+   Upload `public.asc` to the provider settings in registry.terraform.io.
 
-## Examples
+## Creating a Release
 
-- `VERSION = 0.1.0`, commit, tag `v0.1.0`, publish GitHub Release: creates release `v0.1.0`
-- later bump `VERSION` to `0.1.1`, tag, and publish: creates release `v0.1.1`
-- push code changes without changing `VERSION`: no release is created
+To trigger a release:
+
+1. Update the `CHANGELOG.md` (if applicable) and merge into `master`.
+2. Create and push a new tag matching the version you want to release:
+   ```sh
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+3. The GitHub Actions workflow will automatically build, sign, and create a GitHub Release.
+4. The Terraform Registry will automatically detect the new release via its webhook or polling mechanism.

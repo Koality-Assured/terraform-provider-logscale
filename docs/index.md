@@ -17,7 +17,8 @@ This repository is for provider implementation, documentation, research, and aut
 terraform {
   required_providers {
     logscale = {
-      source = "local/logscale"
+      source  = "koality-assured/logscale"
+      version = "~> 1.0" # placeholder for actual version
     }
   }
 }
@@ -34,6 +35,19 @@ variable "logscale_api_url" {
 variable "logscale_api_token" {
   type      = string
   sensitive = true
+}
+```
+
+## Local Development
+
+For provider development, use `dev_overrides` in your `~/.terraformrc` to point to a local build:
+
+```hcl
+provider_installation {
+  dev_overrides {
+    "koality-assured/logscale" = "/path/to/your/provider/binaries"
+  }
+  direct {}
 }
 ```
 
