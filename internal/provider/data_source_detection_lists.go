@@ -43,10 +43,6 @@ type scheduledSearchesDataSource struct {
 	config *LogScaleConfig
 }
 
-type viewScopedListingModel struct {
-	ID       types.String `tfsdk:"id"`
-	ViewName types.String `tfsdk:"view_name"`
-}
 
 type webhookActionSummaryModel struct {
 	ID       types.String `tfsdk:"id"`

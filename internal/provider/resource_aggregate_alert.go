@@ -545,7 +545,7 @@ func selectAggregateAlert(alerts []aggregateAlertReadResult, id string, name str
 func applyAggregateAlertReadResultToState(ctx context.Context, state *aggregateAlertResourceModel, result aggregateAlertReadResult, diags *diag.Diagnostics) {
 	actionRefs := make([]assetReference, 0, len(result.Actions))
 	for _, action := range result.Actions {
-		actionRefs = append(actionRefs, assetReference{ID: action.ID, Name: action.Name})
+		actionRefs = append(actionRefs, assetReference(action))
 	}
 
 	preservedActionRefs, actionDiags := preserveCurrentReferencesIfResolvable(ctx, state.ActionIDsOrNames, actionRefs)

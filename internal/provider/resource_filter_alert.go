@@ -449,7 +449,7 @@ func (r *filterAlertResource) readFilterAlert(ctx context.Context, viewName stri
 func (r *filterAlertResource) applyFilterAlertReadResultToState(ctx context.Context, state *filterAlertResourceModel, result filterAlertReadResult, diags *diag.Diagnostics) {
 	actionRefs := make([]assetReference, 0, len(result.Actions))
 	for _, action := range result.Actions {
-		actionRefs = append(actionRefs, assetReference{ID: action.ID, Name: action.Name})
+		actionRefs = append(actionRefs, assetReference(action))
 	}
 
 	preservedActionRefs, actionDiags := preserveCurrentReferencesIfResolvable(ctx, state.ActionIDsOrNames, actionRefs)

@@ -599,7 +599,7 @@ func selectScheduledSearch(searches []scheduledSearchReadResult, id string, name
 func applyScheduledSearchReadResultToState(ctx context.Context, state *scheduledSearchResourceModel, result scheduledSearchReadResult, diags *diag.Diagnostics) {
 	actionRefs := make([]assetReference, 0, len(result.ActionsV2))
 	for _, action := range result.ActionsV2 {
-		actionRefs = append(actionRefs, assetReference{ID: action.ID, Name: action.Name})
+		actionRefs = append(actionRefs, assetReference(action))
 	}
 
 	preservedActionRefs, actionDiags := preserveCurrentReferencesIfResolvable(ctx, state.ActionIDsOrNames, actionRefs)
