@@ -22,7 +22,7 @@
 
 ---
 
-This repository is for provider implementation, documentation, research, and releases. Normal consumers should use the published release artifacts from this repo. Manual local builds are for provider development and debugging.
+This repository is for provider implementation, documentation, research, and releases. The provider is not yet published to the Terraform Registry until the first signed release is cut. Manual local builds are for provider development and debugging.
 
 
 ## Overview
@@ -114,7 +114,7 @@ Example `~/.terraformrc`:
 ```hcl
 provider_installation {
   dev_overrides {
-    "local/logscale" = "/path/to/your/provider/binaries"
+    "koality-assured/logscale" = "/path/to/your/provider/binaries"
   }
   direct {}
 }
@@ -130,7 +130,7 @@ Examples in this repository use the internal/private provider address `local/log
 terraform {
   required_providers {
     logscale = {
-      source = "local/logscale"
+      source = "koality-assured/logscale"
     }
   }
 }
@@ -595,7 +595,7 @@ data "logscale_validate_query" "preflight" {
 If Terraform is trying to install `hashicorp/logscale` or another public registry address, update your configuration to use the internal/private address you actually distribute. This repository's examples use:
 
 ```hcl
-source = "local/logscale"
+source = "koality-assured/logscale"
 ```
 
 ### Provider Schema Error About `connection`
